@@ -19,7 +19,7 @@ function graficarGato(){
 function graficarComida(){
     graficarRectangulo(comidaX, comidaY, ANCHO_COMIDA, ALTO_COMIDA, "green");
 }
-}
+
 function inciarJuego(){
     gatoX = (canvas.width / 2) - (ANCHO_GATO / 2);
     gatoY = canvas.height - ALTO_GATO;
