@@ -103,3 +103,17 @@ function moverAbajo() {
     graficarGato();
     graficarComida();
 }
+function reiniciarJuego() {
+    clearInterval(intervalo);
+    puntaje = 0;
+    tiempo = 10;
+    mostrarEnSpan("puntos", puntaje);
+    mostrarEnSpan("tiempo", tiempo);
+    gatoX = (canvas.width / 2) - (ANCHO_GATO / 2);
+    gatoY = canvas.height - ALTO_GATO;
+    aparecerComida();
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+    intervalo = setInterval(restarTiempo, 1000);
+}
