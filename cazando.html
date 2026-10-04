@@ -10,14 +10,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="imagenes/lata.png">
   <link rel="stylesheet" href="cazando.css">
 </head>
 <body onload="inciarJuego()">
 
   <main class="pagina">
     <header class="cabecera">
-      <h1>Juego Cazando</h1>
-      <p class="autor">Autor: Juan David Llibri</p>
+      <div class="cabecera-texto">
+        <h1>
+          <img class="emblema" src="imagenes/lata.png" alt="" width="43" height="64">
+          Juego Cazando
+        </h1>
+        <p class="autor">Autor: Juan David Llibri</p>
+        <p class="objetivo">Mueve al gato con los botones y atrapa 6 piezas de comida antes de que pasen 10 segundos.</p>
+      </div>
+      <!-- Imagen decorativa: el gato acechando al ratón -->
+      <img class="cabecera-imagen" src="imagenes/gato-raton.png" alt="" width="1100" height="347">
     </header>
 
     <div class="juego">
@@ -72,10 +81,20 @@
     </div>
 
     <p id="mensaje" class="mensaje" role="status"></p>
+
+    <!-- Escena decorativa inferior -->
+    <div class="escena" aria-hidden="true">
+      <figure class="figura figura-gato">
+        <img src="imagenes/gato-pez.png" alt="" width="324" height="390">
+      </figure>
+      <figure class="figura figura-despensa">
+       
+      </figure>
+    </div>
   </main>
 
   <script src="utilitarios.js"></script>
   <script src="cazando.js"></script>
-
+  
 </body>
 </html>

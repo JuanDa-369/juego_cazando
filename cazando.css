@@ -23,7 +23,7 @@
 }
 
 body {
-  
+
   margin: 0;
   min-height: 100vh;
   background: var(--fondo);
@@ -41,15 +41,48 @@ body {
 
 /* ---------- Cabecera ---------- */
 .cabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
   margin-bottom: 2rem;
-  padding-bottom: 1.75rem;
   border-bottom: 1px solid var(--borde);
 }
 
+.cabecera-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-bottom: 1.75rem;
+}
+
+/* Gato y ratón: apoyados sobre la línea divisoria de la cabecera */
+.cabecera-imagen {
+  display: block;
+  flex: 0 1 min(22rem, 38%);
+  width: min(22rem, 38%);
+  height: auto;
+  margin-bottom: -1px;
+  opacity: 0.92;
+  filter: brightness(1.12) drop-shadow(0 0 14px rgba(227, 184, 101, 0.08));
+  user-select: none;
+}
+
+/* Lata como emblema junto al título */
 h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   margin: 0;
+  white-space: nowrap;
   font: 700 clamp(2.6rem, 7vw, 4.2rem) / 1 var(--serif);
   letter-spacing: -0.01em;
+}
+
+.emblema {
+  flex: none;
+  width: auto;
+  height: clamp(2.6rem, 6.5vw, 4rem);
+  filter: saturate(0.85) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 .autor {
@@ -270,8 +303,71 @@ canvas {
   display: none;
 }
 
+/* ---------- Escena inferior ---------- */
+.escena {
+  display: grid;
+  grid-template-columns: minmax(0, calc(500px + 1.5rem + 2px)) minmax(15rem, 20rem);
+  justify-content: start;
+  align-items: end;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+.figura {
+  margin: 0;
+}
+
+.figura img {
+  display: block;
+  width: auto;
+  height: clamp(8.5rem, 24vw, 13rem);
+  margin-bottom: -1px;
+  user-select: none;
+}
+
+.figura-gato,
+.figura-despensa {
+  justify-self: center;
+}
+
+/* La silueta negra se invierte para que se lea sobre el fondo oscuro */
+.figura-gato img {
+  filter: invert(1) brightness(0.9);
+  opacity: 0.9;
+}
+
+.figura-despensa img {
+  filter: saturate(0.8) brightness(0.95);
+}
+
 /* ---------- Pantallas medianas y móviles ---------- */
 @media (max-width: 900px) {
+    .cabecera {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .cabecera-texto {
+    padding-bottom: 1rem;
+  }
+
+  .cabecera-imagen {
+    align-self: flex-end;
+    flex: none;
+    width: min(20rem, 80%);
+  }
+
+  .escena {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: calc(500px + 1.5rem + 2px);
+  }
+
+  h1 {
+    white-space: normal;
+  }
   .juego {
     grid-template-columns: minmax(0, calc(500px + 1.5rem + 2px));
     gap: 1rem;
@@ -312,6 +408,9 @@ canvas {
 }
 
 @media (max-width: 420px) {
+    .figura img {
+    max-width: 100%;
+  }
   .valor {
     font-size: 2.5rem;
   }
