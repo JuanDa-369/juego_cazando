@@ -1,32 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c0f1a">
   <title>Juego Cazando</title>
-  <link rel="stylesheet" href="cazando.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cazando.css">
 </head>
 <body onload="inciarJuego()">
 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Juan David Llibri</p>
-  <canvas id="areaJuego" width="500" height="500"></canvas>
+  <main class="pagina">
+    <header class="cabecera">
+      <h1>Juego Cazando</h1>
+      <p class="autor">Autor: Juan David Llibri</p>
+    </header>
 
-  <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda()">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
-    <button onclick="reiniciarJuego()" style="padding: 6px 15px; font-weight:bold; cursor: pointer;">Reiniciar</button>
-  </div>
+    <div class="juego">
 
+      <section class="tablero" aria-label="Área de juego">
+        <canvas id="areaJuego" width="500" height="500"></canvas>
+      </section>
 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
+      <aside class="lateral">
 
-  <p id="mensaje"></p>
+        <section class="marcador" aria-label="Marcador">
+          <p class="dato">
+            <span class="etiqueta">Puntos</span>
+            <span class="valor"><span id="puntos">0</span><span class="unidad">de 6</span></span>
+          </p>
+          <p class="dato">
+            <span class="etiqueta">Tiempo</span>
+            <span class="valor"><span id="tiempo">10</span><span class="unidad">s</span></span>
+          </p>
+        </section>
+
+        <section class="bloque" aria-labelledby="titulo-controles">
+          <h2 id="titulo-controles" class="subtitulo">Controles</h2>
+
+          <div class="cruceta" role="group" aria-label="Movimiento del gato">
+            <button type="button" class="dir arriba" onclick="moverArriba()" aria-label="Mover arriba">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg>
+            </button>
+            <button type="button" class="dir izquierda" onclick="moverIzquierda()" aria-label="Mover a la izquierda">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>
+            </button>
+            <button type="button" class="dir abajo" onclick="moverAbajo()" aria-label="Mover abajo">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10l6 6 6-6"/></svg>
+            </button>
+            <button type="button" class="dir derecha" onclick="moverDerecha()" aria-label="Mover a la derecha">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <button type="button" class="reiniciar" onclick="reiniciarJuego()">Reiniciar</button>
+        </section>
+
+        <section class="bloque" aria-labelledby="titulo-leyenda">
+          <h2 id="titulo-leyenda" class="subtitulo">Leyenda</h2>
+          <ul class="leyenda">
+            <li><span class="muestra gato" aria-hidden="true"></span>Gato</li>
+            <li><span class="muestra comida" aria-hidden="true"></span>Comida</li>
+          </ul>
+        </section>
+
+      </aside>
+    </div>
+
+    <p id="mensaje" class="mensaje" role="status"></p>
+  </main>
+
   <script src="utilitarios.js"></script>
   <script src="cazando.js"></script>
 
