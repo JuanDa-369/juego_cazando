@@ -3,5 +3,4 @@
 ----+PROMPT DE JUEGO CAZANDO+----
 
 +Toma el rol de un pogramado y creame un interfaz visual utilizando codigo HTML, CSS
-manten los mismos nombres y los ides correspondientes, que el interfas visual sea algo
-oscuro
+manten los mismos nombres y los ides correspondientes, que el interfas visual sea algo oscuro
